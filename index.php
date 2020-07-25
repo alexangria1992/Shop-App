@@ -4,74 +4,25 @@
     include 'includes/navigation.php'; 
     include 'includes/headerfull.php';
     include 'includes/leftbar.php';
+
+    $sql = "SELECT * FROM products WHERE featured = 1";
+    $featured = $db->query($sql);
     
-
-
-
 
 ?>
     <!-- Main Content -->
     <div class="col-md-8">MAIN CONTENT
         <div class="row">
             <h2 class="text-center">Feature Products</h2>
+            <?php while($product = mysqli_fetch_assoc($featured)) : ?>
             <div class="col-md-3">
-                <h4>Levis Jeans</h4>
-                <img src="images/images/products/men4.png" alt="Levis Jeans" class="img-thumb"/>
-                <p class="list-price text-danger">List Price: <s>$54.99</s></p>
-                <p class="price">Our Price: $19.99</p>
+                <h4><?php echo $product['title']; ?></h4>
+                <img src="<?php echo $product['image'];?>" alt="<?php echo $product['title']; ?>" class="img-thumb"/>
+                <p class="list-price text-danger">List Price: <s>$<?php echo $product['list_price']; ?></s></p>
+                <p class="price">Our Price: $<?php $product['price']; ?></p>
                 <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#details-1">Details</button>
             </div>
-            <div class="col-md-3">
-                <h4>Woman's shirt</h4>
-                <img src="images/images/products/women7.png" alt="Woman's shirt" class="img-thumb"/>
-                <p class="list-price text-danger">List Price: <s>$45.99</s></p>
-                <p class="price">Our Price: $19.99</p>
-                <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#details-1">Details</button>
-            </div>
-            <div class="col-md-3">
-                <h4>Hollister Shirt</h4>
-                <img src="images/images/products/men1.png" alt="Hollister Shirt" class="img-thumb"/>
-                <p class="list-price text-danger">List Price: <s>$25.99</s></p>
-                <p class="price">Our Price: $19.99</p>
-                <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#details-1">Details</button>
-            </div>
-            <div class="col-md-3">
-                <h4>Fancy Shoes</h4>
-                <img src="images/images/products/women6.png" alt="Fancy Shoes" class="img-thumb"/>
-                <p class="list-price text-danger">List Price: <s>$69.99</s></p>
-                <p class="price">Our Price: $49.99</p>
-                <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-targetclassdetails-1">Details</button>
-            </div>
-            <div class="col-md-3">
-                <h4>Boys Hoodie</h4>
-                <img src="images/images/products/boys1.png" alt="Boys Hoodie" class="img-thumb"/> 
-                <p class="list-price text-danger">List Price: <s>$49.99</s></p>
-                <p class="price">Our Price: $39.99</p>
-                <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#details-1">Details</button>
-            </div>
-            <div class="col-md-3">
-                <h4>Girls Dress</h4>
-                <img src="images/images/products/girls3.png" alt="Girls Dress" class="img-thumb"/>
-                <p class="list-price text-danger">List Price: <s>$34.99</s></p>
-                <p class="price">Our Price: $18.99</p>
-                <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#details-1">Details</button>
-            </div>
-            <div class="col-md-3">
-                <h4>Womens' Skirt</h4>
-                <img src="images/images/products/women3.png" alt="Womens' Skirt" class="img-thumb"/>
-                <p class="list-price text-danger">List Price: <s>$29.99</s></p>
-                <p class="price">Our Price: $19.99</p>
-                <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#details-1">Details</button>
-            </div>
-            <div class="col-md-3">
-                <h4>Purse</h4>
-                <img src="images/images/products/women5.png" alt="purse" class="img-thumb"/> 
-                <p class="list-price text-danger">List Price: <s>$49.99</s></p>
-                <p class="price">Our Price: $39.99</p>
-                <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#details-1">Details</button>
-            </div>
-      
-           
+            <?php endwhile; ?> 
         </div>
     </div>
 
