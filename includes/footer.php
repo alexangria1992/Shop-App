@@ -19,6 +19,24 @@
             "transform":"translate(0px, -"+vscroll/2 + "px)"
         })
     });
+
+    function detailsmodal(id){
+        var data = {"id" : id};
+        $.ajax({
+            url: 'includes/detailsmodal.php',
+            method : "post",
+            data : data,
+            success: function(data){
+                $('body').append(data);
+                $('#details-modal').modal('toggle', {backdrop: 'static', keyboard: false});
+
+            },
+            error : function(){
+                alert("something went wrong!")
+            }
+        });
+    }
+
 </script>
 </body>
 </html>
