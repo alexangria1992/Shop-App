@@ -5,5 +5,6 @@ if(mysqli_connect_error()){
   die();
 } 
 
-define('BASEURL', '/Shop-App/');
+require_once 'D:/Xammp2/htdocs/PHP-Shop-Good-Copy/Shop-App/config.php';
+require_once BASEURL.'/Shop-App/helpers/helpers.php';
 ?>
