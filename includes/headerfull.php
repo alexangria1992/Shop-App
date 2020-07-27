@@ -1,4 +1,3 @@
-
     <div id="headerWrapper">
         <div id="back-flower"></div>
             <div id="logotext"></div>
